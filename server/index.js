@@ -15,8 +15,14 @@ connectDB();
 
 app.use(helmet());
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
-  credentials: true
+  origin: [
+    'http://localhost:3000',
+    'https://primetrade-assignment-sigma.vercel.app',
+    'https://primetrade-assignment-z6xy.onrender.com'
+  ],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -26,7 +32,7 @@ if (process.env.NODE_ENV === 'development') {
     console.log(`${req.method} ${req.url}`);
     next();
   });
-}
+}``
 
 app.use('/api/auth', authRoutes);
 app.use('/api/tasks', taskRoutes);
