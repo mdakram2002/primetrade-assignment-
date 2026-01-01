@@ -1,0 +1,26 @@
+
+# dependencies
+/node_modules
+server/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# environment variables (frontend + backend)
+.env
+.env.*
+client/.env
+server/.env
+
+# misc
+.DS_Store
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
